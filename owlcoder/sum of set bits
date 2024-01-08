@@ -1,0 +1,12 @@
+import math
+def bits(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    b = int(math.log2(n))
+    c = b * (1<<(b-1))+n-(1<<b)+1+bits(n-(1<<b))
+    return c
+for i in range(int(input())):
+    n = int(input())
+    print(bits(n))
