@@ -1,0 +1,24 @@
+mod = 1000000007
+def pow(n):
+    a = 2
+    ans = 1
+    while(n):
+        if n%2!=0:
+            n = n - 1
+            ans = (ans*a)%mod
+        else:
+            n = n // 2
+            a = (a*a)%mod
+    return ans%mod
+def solve(a):
+    e,o=0,0
+    for i in a:
+        if i%2==0:e+=1
+        else:o+=1
+    even,odd=0,0
+    if e!=0:
+        even = ((pow(e))-1)%mod
+    if o!=0:
+        odd = (pow(o-1)-1)%mod
+    eo=even*odd
+    return (even+odd+eo)%mod
